@@ -1,12 +1,10 @@
-import java.util.Collections;
-import java.util.Comparator;
-
-public class Producto implements Comparable<Producto> {
+public class Caja implements Comparable<Caja> {
 
     private String nombre;
     private int cantidad;
 
-    public Producto(String nombre, int cantidad) {
+
+    public Caja(String nombre, int cantidad) {
         this.nombre = nombre;
         this.cantidad = cantidad;
     }
@@ -27,23 +25,22 @@ public class Producto implements Comparable<Producto> {
         this.cantidad = cantidad;
     }
 
-
     @Override
     public String toString() {
-        return "Producto{" +
+        return "Cajas{" +
                 "nombre='" + nombre + '\'' +
                 ", cantidad=" + cantidad +
                 '}';
     }
 
-
     @Override
-    public int compareTo(Producto o) {
+    public int compareTo(Caja c) {
 
-        if(o != null) {
-            return this.nombre.compareToIgnoreCase(o.nombre);
+        if(c != null) {
+            return this.nombre.compareToIgnoreCase(c.nombre);
         }
 
         return 1;
     }
+
 }
