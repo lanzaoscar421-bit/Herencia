@@ -1,16 +1,23 @@
+import com.sun.source.tree.Tree;
+
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-public class Contacto {
+public class Contacto implements Comparable<Contacto>{
 
-    Scanner sc = new Scanner(System.in);
+
+    Agenda nuevaAgenda;
 
 
     private String nombre;
-    private int telefono;
+    private String telefono;
     private String correo;
 
-    public Contacto(String nombre, int telefono, String correo) {
+
+    public Contacto(String nombre, String  telefono, String correo) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
@@ -25,11 +32,11 @@ public class Contacto {
         this.nombre = nombre;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -53,42 +60,10 @@ public class Contacto {
 
     //Metodos
 
-
-    public boolean addContacto(Contacto c) {
-        boolean resultado = false;
-
-        String nombreC;
-        int telefonoC;
-        String correoC;
-
-
-
-        do {
-            System.out.println("Inserte el nombre del contacto");
-            System.out.println("Válido siempre que comience por mayúsculas y contenga letras\n");
-            nombreC = sc.nextLine();
-        }while (!PatronNombre(nombreC));
-
-        System.out.println("Inserte el telefono del contacto");
-
-        return resultado;
+    public int compareTo(Contacto otro) {
+         this.nombre.compareTo(otro.getNombre());
+        return this.telefono.compareToIgnoreCase(otro.telefono);
     }
-
-    static boolean PatronNombre(String nombre) {
-        String patron = "^[A-Z][a-zA-Z]*$";
-        return Pattern.matches(patron, nombre);
-    }
-    static boolean PatronTelefono(String telefono) {
-        String patron = "^[679][0-9]{8}$";
-        return Pattern.matches(patron, telefono);
-    }
-    static boolean PatronCorreo(String correo) {
-        String patron = "^[a-zA-Z0-9_.-]+@[a-zA-Z]+\\.[a-zA-Z]{2,4}$";
-        return Pattern.matches(patron, correo);
-    }
-
-
-
-
-
 }
+
+
