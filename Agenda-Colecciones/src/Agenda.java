@@ -69,18 +69,9 @@ public class Agenda {
 
         boolean resultado = false;
 
-        String telefonoEliminar;
-        System.out.println("Inserte el numero de telefono que desea eliminar");
-        telefonoEliminar = sc.nextLine();
 
-        int index = -1;
-        for (Contacto c : contactos) {
-            if (c.getTelefono().equalsIgnoreCase(telefonoEliminar)) {
-                
-            }
 
-            contactos.remove(index);
-        }
+
 
         return  resultado;
 
