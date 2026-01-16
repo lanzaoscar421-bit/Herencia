@@ -61,7 +61,7 @@ public class Agenda {
             }
         }
 
-        System.out.println("Contacto no encontrado");
+        System.out.println("Contacto no exsiste");
         return false;
     }
 
@@ -69,13 +69,54 @@ public class Agenda {
 
         boolean resultado = false;
 
+        String numeroContactoEliminar;
 
+        System.out.println("Primero inserte el Telefono del contacto que quieres eliminar");
 
+        numeroContactoEliminar = sc.nextLine();
 
+        Contacto contactoEliminar = null;
+
+        for (Contacto c : contactos) {
+            if (c.getTelefono().equalsIgnoreCase(numeroContactoEliminar)) {
+                contactoEliminar = c;
+            }
+
+        }
+        if (contactoEliminar != null){
+            contactos.remove(contactoEliminar);
+            resultado = true;
+        }
 
         return  resultado;
 
     }
+
+    public boolean visualizarAgenda (){
+        boolean resultado = false;
+
+        if (contactos.isEmpty()){
+            System.out.println("La agenda esta Vacia");
+        }
+
+        for (Contacto contacto : contactos) {
+            System.out.println(contacto.toString());
+        }
+
+        return resultado;
+    }
+
+    public boolean numeroContactos  (){
+        boolean resultado = false;
+        if (contactos.isEmpty()){
+            System.out.println("La agenda esta Vacia");
+        }
+        int numeroContactosAgenda = contactos.size();
+        System.out.println("Hay: " + numeroContactosAgenda + " En la agenda");
+        return resultado;
+    }
+
+
 
     static boolean PatronNombre(String nombre) {
         String patron = "^[A-Z][a-zA-Z]*$";

@@ -10,6 +10,7 @@ public class Main {
 
         System.out.println("Bienvenido a tu agenda 📖");
 
+
         String opcion = "";
 
 
@@ -36,7 +37,10 @@ public class Main {
                     }
                 break;
                 case "2":
-                    agenda.busquedaContacto();
+                    if(agenda.busquedaContacto()){
+                    }else{
+                        System.out.println("Contacto ya no exsiste");
+                    }
 
                 break;
 
@@ -50,11 +54,10 @@ public class Main {
                 break;
 
                 case "4":
-
-                break;
+                    agenda.visualizarAgenda();
 
                 case "5":
-
+                    agenda.numeroContactos();
                 break;
 
                 case "6":
@@ -66,17 +69,9 @@ public class Main {
                 default:
                     System.out.println("Porfavor, inserte un numero del 1-6");
                 break;
-
-
-
-
             }
 
         }while (opcion != "6");
-
-
-
-
 
 
     }
